@@ -1,44 +1,86 @@
-let responses = ['Rock', 'Paper', 'Scissors'];
+let responses = ['rock', 'paper', 'scissors'];
+let playerWins = 0;
+let computerWins = 0;
+let draws = 0;
+
 
 function getComputerChoice() {
     
-    const computerSelection = Math.floor(Math.random() * responses.length)
+    const computerChoice = Math.floor(Math.random() * responses.length)
 
-    return responses[computerSelection]
+    return responses[computerChoice]
 }
 
-function game(playerSelection, computerSelection) {
+function game(playerSelection, computerSelection = getComputerChoice()) {
     
-    const rock = "rock"
-    const paper = "paper"
-    const scissors = "scissors"
+    const rock = "rock";
+    const paper = "paper";
+    const scissors = "scissors";
+    let gameResult;
+
+    let playerSelect = prompt("Rock, Paper, or Scissors?", "Rock")
+    playerSelection = playerSelect.toLowerCase();
 
     if (playerSelection === "rock" && computerSelection === "scissors") {
-        return "You Win!"
+        gameResult = "You Win!"
     } else if (playerSelection === "scissors" && computerSelection === "rock"){
-        return "You Lose!"
+        gameResult = "You Lose!"
     }
 
     if (playerSelection === "paper" && computerSelection === "rock") {
-        return "You Win!"
+        gameResult = "You Win!"
         } else if (playerSelection === "rock" && computerSelection === "paper") {
-            return "You Lose!"
+            gameResult = "You Lose!"
         }
     
     if (playerSelection === scissors && computerSelection === paper) {
-        return "You Win!"
+        gameResult = "You Win!"
     } else if (playerSelection === paper && computerSelection === scissors){
-        return "You Lose!"
+        gameResult = "You Lose!"
     }
 
     if (playerSelection === computerSelection) {
-        return "It's A Draw!"
+        gameResult = "It's A Draw!"
+    }
+
+    if (playerSelection === null || undefined || 0) {
+        gameResult = "No input Given"
+    }
+
+    return gameResult
+
+
+}
+
+function playGame(){
+    let result;
+    for(let i = 0; i < 5; i++) {
+        result = game();
+    }
+    if (result === "You Win!") {
+        playerWins++;
+    } else if (result === "You Lose!") {
+        computerWins++;
+    } else if (result === "It's A Draw!") {
+        draws++;
+    }
+
+    if (playerWins > computerWins) {
+        return "Player Wins!"
+    } else if (computerWins > playerWins) {
+        return "Computer Wins!"
+    } else if (computerWins === playerWins) {
+        return "Draw"
     }
 
 }
 
 
 
+// when playGame is executed
+// run game function
+// keep score of wins 
+// announce winner or loser at end
 
 
 

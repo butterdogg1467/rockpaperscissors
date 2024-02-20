@@ -6,9 +6,11 @@ let draws = 0;
 
 function getComputerChoice() {
     
-    const computerChoice = Math.floor(Math.random() * responses.length)
+    const computerChoice= Math.floor(Math.random() * responses.length)
+    const computerLog = responses[computerChoice]
+    console.log(computerLog)
+    return computerLog
 
-    return responses[computerChoice]
 }
 
 function game(playerSelection, computerSelection = getComputerChoice()) {
@@ -18,33 +20,32 @@ function game(playerSelection, computerSelection = getComputerChoice()) {
     const scissors = "scissors";
     let gameResult;
 
-    let playerSelect = prompt("Rock, Paper, or Scissors?", "Rock")
+    let playerSelect = prompt("Rock, Paper, or Scissors?")
     playerSelection = playerSelect.toLowerCase();
 
     if (playerSelection === "rock" && computerSelection === "scissors") {
-        gameResult = "You Win!"
+        playerWins++;
     } else if (playerSelection === "scissors" && computerSelection === "rock"){
-        gameResult = "You Lose!"
+        computerWins++;
     }
 
     if (playerSelection === "paper" && computerSelection === "rock") {
-        gameResult = "You Win!"
+        playerWins++;
         } else if (playerSelection === "rock" && computerSelection === "paper") {
-            gameResult = "You Lose!"
+            computerWins++;
         }
-    
     if (playerSelection === scissors && computerSelection === paper) {
-        gameResult = "You Win!"
+        playerWins++;
     } else if (playerSelection === paper && computerSelection === scissors){
-        gameResult = "You Lose!"
+        computerWins++;
     }
 
     if (playerSelection === computerSelection) {
-        gameResult = "It's A Draw!"
+        draws++;
     }
 
-    if (playerSelection === null || undefined || 0) {
-        gameResult = "No input Given"
+    if (playerSelection === null || playerSelection === undefined || playerSelection === 0) {
+        console.log("Invalid input!")
     }
 
     return gameResult
@@ -57,38 +58,27 @@ function playGame(){
     for(let i = 0; i < 5; i++) {
         result = game();
     }
-    if (result === "You Win!") {
-        playerWins++;
+    if (playerWins >= 5) {
+        console.log("Player Wins!")
     } else if (result === "You Lose!") {
-        computerWins++;
-    } else if (result === "It's A Draw!") {
-        draws++;
+        console.log("Computer Wins!")
+    } else {
+        console.log("Draw")
     }
 
+    console.log(playerWins);
+    console.log(computerWins);
+    console.log(draws);
+
     if (playerWins > computerWins) {
-        return "Player Wins!"
+        console.log("Player Wins!")
     } else if (computerWins > playerWins) {
-        return "Computer Wins!"
-    } else if (computerWins === playerWins) {
-        return "Draw"
+        console.log("Computer Wins!")
+    } else if (draws === 5){
+        console.log("Draw")
     }
 
 }
 
+playGame()
 
-
-// when playGame is executed
-// run game function
-// keep score of wins 
-// announce winner or loser at end
-
-
-
-// when user inputs rock, paper, or scissors
-// Randomly pick rock, paper, or scissors and repond
-
-
-// when user inputs a value
-//check if value is greater or less than computer selection
-//if true, tell user they won
-//if false, tell user they lost

@@ -1,7 +1,15 @@
+document.addEventListener('DOMContentLoaded', function() {
+
+
 let responses = ['rock', 'paper', 'scissors'];
 let playerWins = 0;
 let computerWins = 0;
 let draws = 0;
+
+
+const rockbtn = document.querySelector('#rock')
+const paperbtn = document.querySelector('#paper')
+const scissorsbtn = document.querySelector('#scissors')
 
 
 function getComputerChoice() {
@@ -15,32 +23,44 @@ function getComputerChoice() {
 
 function game(playerSelection, computerSelection = getComputerChoice()) {
     
-    const rock = "rock";
-    const paper = "paper";
-    const scissors = "scissors";
     let gameResult;
 
-    let playerSelect = prompt("Rock, Paper, or Scissors?")
-    playerSelection = playerSelect.toLowerCase();
+    let playerSelect = document.querySelector('#playerselect')
+    
+    rockbtn.addEventListener('click', function() {
+        game()
+        playerSelect.textContent = "rock"
+    })
+    
+    paperbtn.addEventListener('click', function() {
+        game()
+        playerSelect.textContent = "paper"
+    })
+    
+    scissorsbtn.addEventListener('click', function() {
+        game()
+        playerSelect.textContent = "scissors"
+    })
 
-    if (playerSelection === "rock" && computerSelection === "scissors") {
+    if (playerSelect.textContent === "rock" && computerSelection === "scissors") {
         playerWins++;
-    } else if (playerSelection === "scissors" && computerSelection === "rock"){
+        
+    } else if (playerSelect.textContent === "scissors" && computerSelection === "rock"){
         computerWins++;
     }
 
-    if (playerSelection === "paper" && computerSelection === "rock") {
+    if (playerSelect.textContent === "paper" && computerSelection === "rock") {
         playerWins++;
-        } else if (playerSelection === "rock" && computerSelection === "paper") {
+        } else if (playerSelect.textContent === "rock" && computerSelection === "paper") {
             computerWins++;
         }
-    if (playerSelection === scissors && computerSelection === paper) {
+    if (playerSelect.textContent === "scissors" && computerSelection === "paper") {
         playerWins++;
-    } else if (playerSelection === paper && computerSelection === scissors){
+    } else if (playerSelect.textContentn === "paper" && computerSelection === "scissors"){
         computerWins++;
     }
 
-    if (playerSelection === computerSelection) {
+    if (playerSelect.textContent === computerSelection) {
         draws++;
     }
 
@@ -55,9 +75,9 @@ function game(playerSelection, computerSelection = getComputerChoice()) {
 
 function playGame(){
     let result;
-    for(let i = 0; i < 5; i++) {
+    // for(let i = 0; i < 5; i++) {
         result = game();
-    }
+    // }
     if (playerWins >= 5) {
         console.log("Player Wins!")
     } else if (result === "You Lose!") {
@@ -80,5 +100,9 @@ function playGame(){
 
 }
 
+
+
 playGame()
+
+})
 

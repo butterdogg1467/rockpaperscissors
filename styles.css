@@ -1,0 +1,85 @@
+body {
+    display: flex;
+    flex-direction: column;
+    height: 700px;
+    flex-grow: 0;
+    align-items: center;
+    background-color: black;
+    color: white;
+}
+
+.buttoncontainer {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    margin: 50px;
+    font-size: large;
+    align-items: center;
+}
+
+#startgame,
+#endgame,
+#cleargame {
+    width: 200px;
+    height: 50px;
+    margin: 10px;
+}
+
+.rpsbtn {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+#rock,
+#paper,
+#scissors {
+    height: fit-content;
+    margin: 10px;
+    font-size: 50px;
+}
+
+#playerselect,
+#computerselect {
+font-size: 20px;
+color: red;
+}
+
+#roundupdate {
+font-size: 25px;
+color: blue;
+}
+
+
+#playerscore, 
+#computerscore, 
+#draws {
+    font-size: 30px;
+    color: green;
+}
+
+#finalresult {
+font-size: 50px;
+color: yellow;
+}
+
+.scoreinfocontainer {
+    border: solid white;
+    text-align: center;
+}
+
+#playerselect,
+#computerselect,
+#roundupdate,
+#resultbox,
+#playerscore,
+#computerscore,
+#draws,
+#finalresult {
+    margin: 10px
+
+}
+
+
+

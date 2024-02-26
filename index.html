@@ -1,16 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en">    
 <head>
     <meta charset="UTF-8">
     <script src="script.js"></script>
+    <link rel="stylesheet" href="styles.css">
     <title>Document</title>
 </head>
 <body>
-    <button id="rock" class="button">🪨</button>
-    <button id="paper" class="button">📄</button>
-    <button id="scissors" class="button">✂️</button>
 
-    <div id="playerselect"></div>
+    <div class="buttoncontainer">
+
+        <button id="startgame" class="button"></button>
+
+        <div class="rpsbtn">
+            <button id="rock" class="button">✊</button>
+            <button id="paper" class="button">✋</button>
+            <button id="scissors" class="button">✌️</button>
+        </div>
+            <button id="endgame" class="button"></button>
+            <button id="cleargame" class="button"></button>
+
+    </div>
+    
+    <div class="scoreinfocontainer">
+        <div id="playerselect"></div>
+        <div id="computerselect"></div>
+        <div id="roundupdate"></div>
+        <div id="resultbox"></div>
+        <div id="playerscore"></div>
+        <div id="computerscore"></div>
+        <div id="draws"></div>
+        <div id="finalresult"></div>
+    </div>
 </body>
 </html>
 
